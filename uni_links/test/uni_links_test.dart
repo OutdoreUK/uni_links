@@ -12,9 +12,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   const mChannel = MethodChannel('uni_links/messages');
   final log = <MethodCall>[];
-  mChannel.setMockMethodCallHandler((MethodCall methodCall) async {
-    log.add(methodCall);
-  });
+  TestWidgetsFlutterBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(
+    mChannel,
+    (message) async => log.add(message),
+  );
 
   tearDown(() {
     log.clear();

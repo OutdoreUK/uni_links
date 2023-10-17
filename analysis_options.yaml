@@ -7,17 +7,12 @@ analyzer:
     always_require_non_null_named_parameters: false # not needed with nnbd
     unnecessary_null_comparison: false # Turned as long as nnbd mix-mode is supported.
 
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
-
 linter:
   rules:
     - prefer_final_locals
     # - public_member_api_docs
     # copy from package:pedantic/analysis_options.1.11.0.yaml
     - always_declare_return_types
-    - always_require_non_null_named_parameters
     - annotate_overrides
     - avoid_init_to_null
     - avoid_null_checks_in_equality_operators
